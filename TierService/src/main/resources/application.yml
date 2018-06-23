@@ -1,11 +1,16 @@
 spring: 
   application: 
-    name: OrderService
+    name: TierService
   kafka: 
     bootstrap-servers: localhost:9092
+    consumer: 
+      group-id: orderInfoGroup
     topic: orderInfo
+  data: 
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/TierTest
 server: 
-  port: 8081
+  port: 8082
 eureka:
   client:
     serviceUrl: 
