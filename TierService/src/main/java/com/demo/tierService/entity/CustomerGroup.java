@@ -13,6 +13,7 @@ public class CustomerGroup {
 	private Double amount;
 	private Double lifeAmount;
 	private String tierId;
+	private String unitId;
 	private Date promotionTime;
 	
 	public String getId() {
@@ -44,6 +45,13 @@ public class CustomerGroup {
 	}
 	public void setTierId(String tierId) {
 		this.tierId = tierId;
+	}
+	
+	public String getUnitId() {
+		return unitId;
+	}
+	public void setUnitId(String unitId) {
+		this.unitId = unitId;
 	}
 	public Date getPromotionTime() {
 		return promotionTime;

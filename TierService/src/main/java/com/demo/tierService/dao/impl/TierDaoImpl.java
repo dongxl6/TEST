@@ -16,8 +16,8 @@ public class TierDaoImpl implements TierDao {
 	private MongoTemplate mongoTemplate;
 	
 	@Override
-	public Tier getTierByAmount(Double amount) {
-		Query query=new Query(Criteria.where("min").lte(amount)).addCriteria(Criteria.where("max").gte(amount));
+	public Tier getTierByAmountAndUnitId(Double amount,String unitId) {
+		Query query=new Query(Criteria.where("min").lte(amount)).addCriteria(Criteria.where("max").gte(amount)).addCriteria(Criteria.where("unitId").is(unitId));
 		Tier tier=mongoTemplate.findOne(query, Tier.class);
 		return tier;
 	}

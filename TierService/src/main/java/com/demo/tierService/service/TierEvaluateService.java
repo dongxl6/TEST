@@ -27,10 +27,10 @@ public class TierEvaluateService {
 
 		customerGroup.setAmount(newAmount);
 		customerGroup.setLifeAmount(newLifeAmount);
-		Tier tier=tierDao.getTierByAmount(newAmount);
+		Tier tier=tierDao.getTierByAmountAndUnitId(newAmount,customerGroup.getUnitId());
 		
 		if(tier==null) {
-			tier=tierDao.getTierByTierId("other");
+			tier=tierDao.getTierByTierId(customerGroup.getTierId());
 		}
 		if(!tier.getTierId().equals(customerGroup.getTierId())) {
 			customerGroup.setTierId(tier.getTierId());
