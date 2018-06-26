@@ -9,6 +9,14 @@ spring:
   data: 
     mongodb:
       uri: mongodb://127.0.0.1:27017/TierTest
+  redis: 
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    database: 0
+    lock: 
+      pattern: tierService.evaluation.lock
+      timeout: 20
 server: 
   port: 8082
 eureka:
