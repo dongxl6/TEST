@@ -31,7 +31,7 @@ public class TierEvaluateService {
 	
 	//!!WARNING:this method is not thread safe, so be carefully use it.
 	public void evaluateTier(OrderInfo order) {
-		RLock rlock = redissonClient.getLock(LOCK_PATTERN + order.getCustomerGroupId());
+		RLock rlock = redissonClient.getLock(LOCK_PATTERN + "." + order.getCustomerGroupId());
 	    rlock.lock(TIMEOUT, TimeUnit.SECONDS);
 	    try {
 			CustomerGroup customerGroup=customerGroupDao.getCustomerGroup(order.getCustomerGroupId());
